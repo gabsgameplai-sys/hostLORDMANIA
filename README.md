@@ -1,0 +1,2 @@
+# hostLORDMANIA
+host privada
