@@ -8,19 +8,35 @@
 </head>
 <body>
 
-<div class="container">
-  <h1>🤖 LordMania Bot</h1>
+<div class="app">
 
-  <div id="chat"></div>
-
-  <div class="input-area">
-    <input 
-      id="msg" 
-      placeholder="Digite um comando... (/help)" 
-      onkeypress="if(event.key === 'Enter') send()"
-    >
-    <button onclick="send()">Enviar</button>
+  <!-- LADO ESQUERDO (personagem) -->
+  <div class="left">
+    <img src="https://crafatar.com/renders/body/Steve" class="skin">
   </div>
+
+  <!-- LADO DIREITO (chat) -->
+  <div class="right">
+
+    <div class="header">
+      <h2>🤖 LordMania Bot</h2>
+    </div>
+
+    <div id="chat" class="chat">
+      <div class="bot-msg">
+        Olá! Eu sou o bot do servidor 😎<br>
+        Use /help para ver comandos.
+      </div>
+    </div>
+
+    <div class="input-area">
+      <input id="msg" placeholder="Digite aqui..." 
+        onkeypress="if(event.key==='Enter') send()">
+      <button onclick="send()">➤</button>
+    </div>
+
+  </div>
+
 </div>
 
 <script src="script.js"></script>
