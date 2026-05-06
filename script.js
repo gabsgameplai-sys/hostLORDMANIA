@@ -1,45 +1,85 @@
-function send() {
-  let input = document.getElementById("msg");
-  let chat = document.getElementById("chat");
+body {
+  margin: 0;
+  font-family: Arial;
+  background: #e5e5e5;
+}
 
-  let userMsg = input.value.trim();
-  if (!userMsg) return;
+.app {
+  display: flex;
+  height: 100vh;
+}
 
-  chat.innerHTML += `<p class="user"><b>Você:</b> ${userMsg}</p>`;
+/* esquerda */
+.left {
+  width: 50%;
+  background: url('https://images.minecraft.net/content/dam/games/minecraft/key-art/MC_The-Wild-Update_1170x500.jpg') center/cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-  let reply = "";
+.skin {
+  height: 400px;
+}
 
-  if (userMsg === "/help") {
-    reply = "Comandos: /help, /status, /ip, /skin NICK";
-  }
+/* direita */
+.right {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  background: #f3f3f3;
+}
 
-  else if (userMsg === "/status") {
-    reply = "Servidor: Online 🟢";
-  }
+.header {
+  padding: 15px;
+  background: #ddd;
+  border-bottom: 1px solid #ccc;
+}
 
-  else if (userMsg === "/ip") {
-    reply = "IP: lordmania.qzz.io";
-  }
+.chat {
+  flex: 1;
+  padding: 15px;
+  overflow-y: auto;
+}
 
-  else if (userMsg.startsWith("/skin")) {
-    let nick = userMsg.split(" ")[1];
+.bot-msg {
+  background: white;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
 
-    if (!nick) {
-      reply = "Use: /skin NICK";
-    } else {
-      reply = `
-        Skin de ${nick}:<br>
-        <img src="https://crafatar.com/renders/body/${nick}">
-      `;
-    }
-  }
+.user-msg {
+  text-align: right;
+  margin-bottom: 10px;
+}
 
-  else {
-    reply = "Comando desconhecido. Use /help";
-  }
+.user-msg span {
+  background: #4caf50;
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+}
 
-  chat.innerHTML += `<p class="bot"><b>Bot:</b> ${reply}</p>`;
+.input-area {
+  display: flex;
+  padding: 10px;
+  border-top: 1px solid #ccc;
+}
 
-  chat.scrollTop = chat.scrollHeight;
-  input.value = "";
+input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 20px;
+  border: none;
+}
+
+button {
+  margin-left: 10px;
+  padding: 10px 15px;
+  border-radius: 50%;
+  border: none;
+  background: #4caf50;
+  color: white;
+  cursor: pointer;
 }
