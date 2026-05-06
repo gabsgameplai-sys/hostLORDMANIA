@@ -2,6 +2,7 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>LordMania Bot</title>
   <link rel="stylesheet" href="style.css">
 </head>
@@ -13,7 +14,11 @@
   <div id="chat"></div>
 
   <div class="input-area">
-    <input id="msg" placeholder="Digite um comando... (/help)">
+    <input 
+      id="msg" 
+      placeholder="Digite um comando... (/help)" 
+      onkeypress="if(event.key === 'Enter') send()"
+    >
     <button onclick="send()">Enviar</button>
   </div>
 </div>
