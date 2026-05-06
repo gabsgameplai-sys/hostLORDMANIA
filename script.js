@@ -1,6 +1,7 @@
 function send() {
   let input = document.getElementById("msg");
   let chat = document.getElementById("chat");
+  let skin = document.getElementById("skin");
 
   let msg = input.value.trim();
   if (!msg) return;
@@ -25,15 +26,21 @@ function send() {
     if (!nick) {
       reply = "Use: /skin NICK";
     } else {
-      document.querySelector(".skin").src =
-        `https://crafatar.com/renders/body/${nick}`;
+      let url = `https://crafatar.com/renders/body/${nick}?overlay=true`;
+
+      skin.src = url;
+
+      // fallback automático
+      skin.onerror = () => {
+        skin.src = `https://minotar.net/body/${nick}/200.png`;
+      };
 
       reply = `Mostrando skin de ${nick}`;
     }
   }
 
   else {
-    reply = "Não entendi 🤔";
+    reply = "Não entendi 🤔 (use /help)";
   }
 
   chat.innerHTML += `
