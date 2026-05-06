@@ -1,7 +1,7 @@
 body {
   margin: 0;
   font-family: Arial;
-  background: #e5e5e5;
+  background: #0f172a;
 }
 
 .app {
@@ -12,7 +12,7 @@ body {
 /* esquerda */
 .left {
   width: 50%;
-  background: url('https://images.minecraft.net/content/dam/games/minecraft/key-art/MC_The-Wild-Update_1170x500.jpg') center/cover;
+  background: #020617;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -20,6 +20,7 @@ body {
 
 .skin {
   height: 400px;
+  image-rendering: pixelated;
 }
 
 /* direita */
@@ -27,13 +28,14 @@ body {
   width: 50%;
   display: flex;
   flex-direction: column;
-  background: #f3f3f3;
+  background: #1e293b;
+  color: white;
 }
 
 .header {
   padding: 15px;
-  background: #ddd;
-  border-bottom: 1px solid #ccc;
+  background: #020617;
+  border-bottom: 1px solid #333;
 }
 
 .chat {
@@ -43,7 +45,7 @@ body {
 }
 
 .bot-msg {
-  background: white;
+  background: #334155;
   padding: 10px;
   border-radius: 10px;
   margin-bottom: 10px;
@@ -55,7 +57,7 @@ body {
 }
 
 .user-msg span {
-  background: #4caf50;
+  background: #22c55e;
   color: white;
   padding: 10px;
   border-radius: 10px;
@@ -64,7 +66,7 @@ body {
 .input-area {
   display: flex;
   padding: 10px;
-  border-top: 1px solid #ccc;
+  border-top: 1px solid #333;
 }
 
 input {
@@ -72,6 +74,7 @@ input {
   padding: 10px;
   border-radius: 20px;
   border: none;
+  outline: none;
 }
 
 button {
@@ -79,7 +82,7 @@ button {
   padding: 10px 15px;
   border-radius: 50%;
   border: none;
-  background: #4caf50;
+  background: #22c55e;
   color: white;
   cursor: pointer;
 }
