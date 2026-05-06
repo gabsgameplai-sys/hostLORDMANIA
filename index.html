@@ -1,10 +1,48 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Meu Site</title>
+  <title>Bot LordMania</title>
+  <style>
+    body { background:#0f172a; color:white; font-family:Arial; }
+    #chat { height:300px; overflow:auto; border:1px solid #333; padding:10px; }
+    input { width:80%; padding:10px; }
+    button { padding:10px; }
+  </style>
 </head>
 <body>
-  <h1>Bem-vindo ao meu site!</h1>
-  <p>Criei isso usando GitHub Pages 😎</p>
+
+<h2>🤖 Bot LordMania</h2>
+<div id="chat"></div>
+
+<input id="msg" placeholder="Digite um comando..." />
+<button onclick="send()">Enviar</button>
+
+<script>
+function send() {
+  let input = document.getElementById("msg");
+  let chat = document.getElementById("chat");
+
+  let userMsg = input.value;
+  chat.innerHTML += "<p><b>Você:</b> " + userMsg + "</p>";
+
+  let reply = "";
+
+  if (userMsg === "/help") {
+    reply = "Comandos: /status, /ip, /site";
+  } else if (userMsg === "/status") {
+    reply = "Servidor: Online 🟢";
+  } else if (userMsg === "/ip") {
+    reply = "IP: lordmania.qzz.io";
+  } else if (userMsg === "/site") {
+    reply = "Acesse: https://lordmania.qzz.io";
+  } else {
+    reply = "Comando desconhecido.";
+  }
+
+  chat.innerHTML += "<p><b>Bot:</b> " + reply + "</p>";
+  input.value = "";
+}
+</script>
+
 </body>
 </html>
