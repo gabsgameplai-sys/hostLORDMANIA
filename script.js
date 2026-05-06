@@ -1,85 +1,45 @@
-body {
-  margin: 0;
-  font-family: Arial;
-  background: #e5e5e5;
-}
+function send() {
+  let input = document.getElementById("msg");
+  let chat = document.getElementById("chat");
 
-.app {
-  display: flex;
-  height: 100vh;
-}
+  let msg = input.value.trim();
+  if (!msg) return;
 
-/* esquerda */
-.left {
-  width: 50%;
-  background: url('https://images.minecraft.net/content/dam/games/minecraft/key-art/MC_The-Wild-Update_1170x500.jpg') center/cover;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+  chat.innerHTML += `
+    <div class="user-msg"><span>${msg}</span></div>
+  `;
 
-.skin {
-  height: 400px;
-}
+  let reply = "";
 
-/* direita */
-.right {
-  width: 50%;
-  display: flex;
-  flex-direction: column;
-  background: #f3f3f3;
-}
+  if (msg === "/help") {
+    reply = "Comandos: /help, /skin NICK, /ip";
+  }
 
-.header {
-  padding: 15px;
-  background: #ddd;
-  border-bottom: 1px solid #ccc;
-}
+  else if (msg === "/ip") {
+    reply = "IP: lordmania.qzz.io";
+  }
 
-.chat {
-  flex: 1;
-  padding: 15px;
-  overflow-y: auto;
-}
+  else if (msg.startsWith("/skin")) {
+    let nick = msg.split(" ")[1];
 
-.bot-msg {
-  background: white;
-  padding: 10px;
-  border-radius: 10px;
-  margin-bottom: 10px;
-}
+    if (!nick) {
+      reply = "Use: /skin NICK";
+    } else {
+      document.querySelector(".skin").src =
+        `https://crafatar.com/renders/body/${nick}`;
 
-.user-msg {
-  text-align: right;
-  margin-bottom: 10px;
-}
+      reply = `Mostrando skin de ${nick}`;
+    }
+  }
 
-.user-msg span {
-  background: #4caf50;
-  color: white;
-  padding: 10px;
-  border-radius: 10px;
-}
+  else {
+    reply = "Não entendi 🤔";
+  }
 
-.input-area {
-  display: flex;
-  padding: 10px;
-  border-top: 1px solid #ccc;
-}
+  chat.innerHTML += `
+    <div class="bot-msg">${reply}</div>
+  `;
 
-input {
-  flex: 1;
-  padding: 10px;
-  border-radius: 20px;
-  border: none;
-}
-
-button {
-  margin-left: 10px;
-  padding: 10px 15px;
-  border-radius: 50%;
-  border: none;
-  background: #4caf50;
-  color: white;
-  cursor: pointer;
+  chat.scrollTop = chat.scrollHeight;
+  input.value = "";
 }
